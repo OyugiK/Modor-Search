@@ -16,7 +16,7 @@ app.use(bodyParser());
 // instantiate the people graph api
 var api = new graphAPI();
 
-// List all Fruits
+// List all People
 
 app.get('/api/people', function(req, res){
 	//call the api
