@@ -1,23 +1,26 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var mongoosemask = require("mongoosemask");
 
 var app		= express();
 
-mongoose.connect('mongodb://localhost/modoz');
+// connect oto 
+mongoose.connect('mongodb://localhost/gwaji');
 
+//the person schema
 var personSchema = {
 	id:Number,
 	guid:String,
 	picture:String,
 	age:Number,
 	name:String,
-	gender:String,
+	gender:String,	
 	company:String,
 	phone:String,
 	email:String,
-	address:String,
-	about:String,
+	address:String,	
 	registered:String,
+	about:{ type: String, select: false },
 	tags:String,
 	friends:{
 		id:Number,
@@ -26,13 +29,10 @@ var personSchema = {
 	date:Date
 }
 
-var Person = mongoose.model('Person', personSchema, 'modoz')
 
+// the model
+var Person = mongoose.model('Person', personSchema, 'gwaji')
 
-// app.use(express.static(__dirname + '/views'));
-// //Store all HTML files in view folder.
-// app.use(express.static(__dirname + '/Script'));
-// //Store all JS and CSS in Scripts folder.
 
 /**
 
@@ -50,6 +50,7 @@ module.exports = exports = GraphAPI = function(){
 
 	this.listAllPeople = function(req, res){
 		// query
+
 		return Person.find(function (err,doc){
 			if (!err) {
 				if (doc.length == 0) {				
@@ -57,7 +58,7 @@ module.exports = exports = GraphAPI = function(){
 						console.log({"status" : "404 Person Doesnt Exist"});
 					}
 					else{
-						res.send(doc);
+						res.send(JSON.parse(JSON.stringify(doc)));
 						console.log({"status" : "200 OK"});
 						// Populate a new field views
 					}			
@@ -83,7 +84,7 @@ module.exports = exports = GraphAPI = function(){
 					console.log({"status" : "404 Person Doesnt Exist"});
 				}
 				else{
-					res.send(doc);
+					res.send(JSON.parse(JSON.stringify(doc)));
 					console.log({"status" : "200 OK"});
 					// Populate a new field views
 				}			
@@ -102,14 +103,15 @@ module.exports = exports = GraphAPI = function(){
 	**/
 
 	this.findByPhoneNumber = function(req, res){
-		Person.find({phone: req.params.phone}, function(err,doc){
+		Person.find({phone: req.params.phone}).lean().exec(function(err,doc){
 			if(!err){
 				if (doc.length ==0) {
 					res.send({"status" : "404 Person Doesnt Exist"});
 					console.log({"status" : "404 Person Doesnt Exist"});
+
 				}
-				else{
-					res.send(doc);
+				else{					
+					res.send(JSON.parse(JSON.stringify(doc)));
 					console.log({"status" : "200 OK"});
 				}			
 			}
@@ -136,7 +138,7 @@ module.exports = exports = GraphAPI = function(){
 					console.log({"status" : "404 Person Doesnt Exist"});
 				}
 				else{
-					res.send(doc);
+					res.send(JSON.parse(JSON.stringify(doc)));
 					console.log({"status" : "200 OK"});
 				}			
 			}
@@ -161,7 +163,7 @@ module.exports = exports = GraphAPI = function(){
 					console.log({"status" : "404 Person Doesnt Exist"});
 				}
 				else{
-					res.send(doc);
+					res.send(JSON.parse(JSON.stringify(doc)));
 					console.log({"status" : "200 OK"});
 				}
 			}
@@ -186,7 +188,7 @@ module.exports = exports = GraphAPI = function(){
 					console.log({"status" : "404 Person Doesnt Exist"});
 				}
 				else{
-					res.send(doc);
+					res.send(JSON.parse(JSON.stringify(doc)));
 					console.log({"status" : "200 OK"});
 				}
 			}

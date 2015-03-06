@@ -1,6 +1,30 @@
+/*
+
+The People Graph API provide the nodes that other 3rd parties will call when requesting for data
+The API is designed for scale. It is also designed to be ubiquituos
+This API is built to take advantage NodeJS non-blocking features i.e
+Provide availabilty at all times to users in a fast and efficient fashion
+
+The REST web service end-points can be consumed from :
+a) USSD
+b) Web App
+c) Mobile (Android, Iphone, Nokia)
+
+@Author : Kevin Oyugi
+@Year   : 2015
+
+#TODO ::::
+Add Tokenisation
+Add Logging
+Add Authentification
+
+
+
+*/
+
+
 var express 	= require("express");
 var mongoose 	= require("mongoose");
-var bodyParser 	= require("body-parser");
 var graphAPI 	= require("./people.js");
 var cookieParser = require('cookie-parser');
 var expressHbs = require('express3-handlebars');
@@ -11,7 +35,7 @@ var app = express();
 app.engine('hbs', expressHbs({extname:'hbs', defaultLayout:'main.hbs'}));
 
 app.set('view engine', 'hbs');
-app.use(bodyParser());
+
 
 // instantiate the people graph api
 var api = new graphAPI();
@@ -21,8 +45,8 @@ var api = new graphAPI();
 app.get('/api/people', function(req, res){
 	//call the api
 	data =  api.listAllPeople(req,res);
-	res.render('findAll', data);
-	console.log(data);
+	
+	return data
 
 });
 
@@ -32,6 +56,8 @@ app.get('/api/people/name/:name', function(req, res){
 	// call the api
 	data = api.findByName(req,res);
 
+  return data;
+
 });
 
 
@@ -39,7 +65,9 @@ app.get('/api/people/name/:name', function(req, res){
 app.get('/api/people/phone/:phone', function(req, res){
 	// call the api
 	data =  api.findByPhoneNumber(req,res);
-	res.render('findByPhone', data);
+
+  return data;
+  
 
 });
 
@@ -70,44 +98,18 @@ app.get('/', function(req,res){
 	res.render('index');
 });
 
-// About
-app.get('/about', function(req,res){
-	//res.sendFile('about.html');
-	res.render('index');
-});
-
-app.get('/complex', function(req, res){
+app.get('/about', function(req, res){
   var data = {
-    name: 'Gorilla',
-    address: {
-      streetName: 'Broadway',
-      streetNumber: '721',
-      floor: 4,
-      addressType: {
-        typeName: 'residential'
+    name: 'Graph API',
+    info: {
+      versionName: 'Broadway',
+      Author: 'OyugiK',      
+      Contributors: {
+        name: 'Skylar White'
       }
     }
   };
-  res.render('complex', data);
-});
-
-app.get('/loop', function(req, res){
-  var basketballPlayers = [
-    {name: 'Lebron James', team: 'the Heat'},
-    {name: 'Kevin Durant', team: 'the Thunder'},
-    {name: 'Kobe Jordan',  team: 'the Lakers'}
-  ];
-  
-  var days = [
-    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-  ];
-  
-  var data = {
-    basketballPlayers: basketballPlayers,
-    days: days
-  };
-  
-  res.render('loop', data);
+  res.render('about', data);
 });
 
 

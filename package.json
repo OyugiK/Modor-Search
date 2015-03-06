@@ -9,7 +9,7 @@
 		"winston":"latest",
 		"passport":"latest",
 		"cookie-parser":"latest",
-		"express3-handlebars":"latest",
-		"bodyParser":"lastes"
+		"express3-handlebars":"latest",		
+		"mongoosemask":"latest"
 	}
 }
