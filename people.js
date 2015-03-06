@@ -51,7 +51,7 @@ module.exports = exports = GraphAPI = function(){
 	this.listAllPeople = function(req, res){
 		// query
 
-		return Person.find(function (err,doc){
+		return Person.find().lean().exec(function (err,doc){
 			if (!err) {
 				if (doc.length == 0) {				
 						res.send({"status" : "404 Person Doesnt Exist"});
@@ -77,7 +77,7 @@ module.exports = exports = GraphAPI = function(){
 
 	this.findByName = function(req, res){
 		//query
-		return Person.find({name: req.params.name}, function(err,doc){
+		return Person.find({name: req.params.name}).lean().exec(function(err,doc){
 			if (!err) {
 				if (doc.length == 0) {				
 					res.send({"status" : "404 Person Doesnt Exist"});
@@ -131,7 +131,7 @@ module.exports = exports = GraphAPI = function(){
 	**/
 
 	this.findByCompany = function(req, res){
-		Person.find({company: req.params.company}, function(err,doc){
+		Person.find({company: req.params.company}).lean().exec(function(err,doc){
 			if(!err){
 				if (doc.length ==0) {
 					res.send({"status" : "404 Person Doesnt Exist"});
@@ -156,7 +156,7 @@ module.exports = exports = GraphAPI = function(){
 	**/
 
 	this.findByFriends = function(req, res){
-		Person.find({'friends.name': req.params.name}, function(err,doc){
+		Person.find({'friends.name': req.params.name}).lean().exec(function(err,doc){
 			if(!err){
 				if (doc.length ==0) {
 					res.send({"status" : "404 Person Doesnt Exist"});
@@ -181,7 +181,7 @@ module.exports = exports = GraphAPI = function(){
 	**/
 
 	this.findByAddress = function(req, res)	{
-		Person.find({address: req.params.address}, function(err,doc){
+		Person.find({address: req.params.address}).lean().exec(function(err,doc){
 			if(!err){				
 				if (doc.length ==0) {
 					res.send({"status" : "404 Person Doesnt Exist"});
@@ -203,11 +203,3 @@ module.exports = exports = GraphAPI = function(){
 };
 
 
-app.get('/', function(req,res){
-	res.sendFile('index.html');
-});
-
-
-app.get('/about', function(req,res){
-	res.sendFile('about.html');
-});
