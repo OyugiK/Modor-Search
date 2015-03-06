@@ -64,28 +64,43 @@
 	$findByName = $service->search('http://127.0.0.1:3000/api/people/name/'.$modTerm);
 	# search by address
 	$findByAddress = $service->search('http://127.0.0.1:3000/api/people/address/'.$modTerm);
-	# search company
+	#search company
 	$findByCompany = $service->search('http://127.0.0.1:3000/api/people/company/'.$modTerm);
 	# search by company
 	$findByFriends = $service->search('http://127.0.0.1:3000/api/people/pals/'.$modTerm);
 
 
+
 	switch (false) {
 		case ($findByPhone == '{"status":"404 Person Doesnt Exist"}'):
-			$data = $findByPhone;			
+			$data = $findByPhone;	
+			$dataArr = (json_decode($data, true));	
+			$records = $dataArr;	
 			break;
 		case ($findByName == '{"status":"404 Person Doesnt Exist"}'):
-			$data = $findByName;				
+			$data = $findByName;
+			$dataArr = (json_decode($data, true));				
+			$records = $dataArr;
 			# code...
 			break;
-		case ($findByCompany == '{"status":"404 Person Doesnt Exist"}'):
+		case ($findByCompany == '{"status":"404 Person Doesnt Exist"}'):			
+			$records = array();
 			$data = $findByCompany;
+			$dataArr = (json_decode($data, true));
+			for ($i=0; $i<count($dataArr); $i++){
+			$record = $dataArr[$i];		
+			array_push($records, $record);			
+			}
 			break;	
 		case ($findByAddress == '{"status":"404 Person Doesnt Exist"}'):
 			$data = $findByAddress;
+			$dataArr = (json_decode($data, true));
+			$records = $dataArr;
 			break;		
 		case ($findByFriends == '{"status":"404 Person Doesnt Exist"}'):
 			$data = $findByFriends;					
+			$dataArr = (json_decode($data, true));
+			$records = $dataArr;
 			break;		
 		default:
 			# code...
@@ -93,7 +108,10 @@
 	}
 
 
-	$dataArr = (json_decode($data, true));
+	// var_dump($records[0]);
+
+
+	
 
 	
 ?>
@@ -204,18 +222,18 @@
 	  <h4>Search Results (<?php echo($term) ?>)</h4>
 		<?php
 					
-			if (!isset($dataArr[0])) {
+			if ($records[0] == null) {
 		?>
 		<div class="alert">
 			  <button type="button" class="close" data-dismiss="alert">&times;</button>
-			  <strong>Sorry!</strong> This person is not registered for Modor. Ensure Mobile Numbers, Address, Company are accurate.
+			  <strong>Sorry!</strong> No records found please try again. Ensure Mobile Numbers, Address, Company are accurate.
 			</div>
 		
 		<?php
 
 			}
 			# empty resutls
-			elseif(!isset($dataArr[0]) || sizeof($dataArr[0]) == 0){
+			elseif(!isset($records[0]) || sizeof($records[0]) == 0){
 		?>
 			<div class="alert">
 			  <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -240,23 +258,23 @@
 			<tbody>
 				<?php
 					# loop and print
-					foreach($dataArr as $result){
+					foreach($records as $result){
 				?>
 			  <tr>
 				<td>
-				  <?php echo($dataArr[0]['name']); ?>
+				  <?php echo($result['name']); ?>
 				</td>
 				<td>
-				  <?php echo($dataArr[0]['phone']); ?>
+				  <?php echo($result['phone']); ?>
 				</td>
 				<td>
-				  <?php echo($dataArr[0]['company']); ?>
+				  <?php echo($result['company']); ?>
 				</td>
 				<td>
-				  <?php echo($dataArr[0]['email']); ?>
+				  <?php echo($result['email']); ?>
 				</td>
 				<td>
-				  <?php echo($dataArr[0]['address']); ?>
+				  <?php echo($result['address']); ?>
 				</td>				
 				<td>
 					<a href="profile.php?phone=<?php
