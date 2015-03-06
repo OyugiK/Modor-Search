@@ -1,0 +1,15 @@
+{
+	"name": "expresstest",
+	"version": "0.0.1",
+	"dependencies":{
+		"express":"latest",
+		"mongoose":"latest",
+		"cors":"latest",
+		"body-parser":"latest",
+		"winston":"latest",
+		"passport":"latest",
+		"cookie-parser":"latest",
+		"express3-handlebars":"latest",		
+		"mongoosemask":"latest"
+	}
+}

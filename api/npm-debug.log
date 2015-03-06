@@ -1,0 +1,406 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.15
+3 info using node@v0.10.29
+4 warn package.json expresstest@0.0.1 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/home/oyugik/node/expresswebpages',
+6 verbose install   [ 'express',
+6 verbose install     'mongoose',
+6 verbose install     'cors',
+6 verbose install     'body-parser',
+6 verbose install     'winston',
+6 verbose install     'passport',
+6 verbose install     'cookie-parser',
+6 verbose install     'express3-handlebars',
+6 verbose install     'bodyParser' ] ]
+7 info preinstall expresstest@0.0.1
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'express@latest', null ]
+10 verbose cache add name=undefined spec="express@latest" args=["express@latest",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'express@latest',
+11 verbose parsed url   path: 'express@latest',
+11 verbose parsed url   href: 'express@latest' }
+12 verbose cache add [ 'mongoose@latest', null ]
+13 verbose cache add name=undefined spec="mongoose@latest" args=["mongoose@latest",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'mongoose@latest',
+14 verbose parsed url   path: 'mongoose@latest',
+14 verbose parsed url   href: 'mongoose@latest' }
+15 verbose cache add [ 'cors@latest', null ]
+16 verbose cache add name=undefined spec="cors@latest" args=["cors@latest",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'cors@latest',
+17 verbose parsed url   path: 'cors@latest',
+17 verbose parsed url   href: 'cors@latest' }
+18 verbose cache add name="express" spec="latest" args=["express","latest"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'latest',
+19 verbose parsed url   path: 'latest',
+19 verbose parsed url   href: 'latest' }
+20 verbose addNamed [ 'express', 'latest' ]
+21 verbose addNamed [ null, null ]
+22 verbose cache add name="mongoose" spec="latest" args=["mongoose","latest"]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: 'latest',
+23 verbose parsed url   path: 'latest',
+23 verbose parsed url   href: 'latest' }
+24 verbose addNamed [ 'mongoose', 'latest' ]
+25 verbose addNamed [ null, null ]
+26 verbose cache add name="cors" spec="latest" args=["cors","latest"]
+27 verbose parsed url { protocol: null,
+27 verbose parsed url   slashes: null,
+27 verbose parsed url   auth: null,
+27 verbose parsed url   host: null,
+27 verbose parsed url   port: null,
+27 verbose parsed url   hostname: null,
+27 verbose parsed url   hash: null,
+27 verbose parsed url   search: null,
+27 verbose parsed url   query: null,
+27 verbose parsed url   pathname: 'latest',
+27 verbose parsed url   path: 'latest',
+27 verbose parsed url   href: 'latest' }
+28 verbose addNamed [ 'cors', 'latest' ]
+29 verbose addNamed [ null, null ]
+30 silly lockFile c30a01ab-express-latest express@latest
+31 verbose lock express@latest /home/oyugik/.npm/c30a01ab-express-latest.lock
+32 silly lockFile 73e949f4-mongoose-latest mongoose@latest
+33 verbose lock mongoose@latest /home/oyugik/.npm/73e949f4-mongoose-latest.lock
+34 silly lockFile aae89a52-cors-latest cors@latest
+35 verbose lock cors@latest /home/oyugik/.npm/aae89a52-cors-latest.lock
+36 verbose cache add [ 'body-parser@latest', null ]
+37 verbose cache add name=undefined spec="body-parser@latest" args=["body-parser@latest",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'body-parser@latest',
+38 verbose parsed url   path: 'body-parser@latest',
+38 verbose parsed url   href: 'body-parser@latest' }
+39 verbose cache add [ 'winston@latest', null ]
+40 verbose cache add name=undefined spec="winston@latest" args=["winston@latest",null]
+41 verbose parsed url { protocol: null,
+41 verbose parsed url   slashes: null,
+41 verbose parsed url   auth: null,
+41 verbose parsed url   host: null,
+41 verbose parsed url   port: null,
+41 verbose parsed url   hostname: null,
+41 verbose parsed url   hash: null,
+41 verbose parsed url   search: null,
+41 verbose parsed url   query: null,
+41 verbose parsed url   pathname: 'winston@latest',
+41 verbose parsed url   path: 'winston@latest',
+41 verbose parsed url   href: 'winston@latest' }
+42 verbose cache add name="body-parser" spec="latest" args=["body-parser","latest"]
+43 verbose parsed url { protocol: null,
+43 verbose parsed url   slashes: null,
+43 verbose parsed url   auth: null,
+43 verbose parsed url   host: null,
+43 verbose parsed url   port: null,
+43 verbose parsed url   hostname: null,
+43 verbose parsed url   hash: null,
+43 verbose parsed url   search: null,
+43 verbose parsed url   query: null,
+43 verbose parsed url   pathname: 'latest',
+43 verbose parsed url   path: 'latest',
+43 verbose parsed url   href: 'latest' }
+44 verbose addNamed [ 'body-parser', 'latest' ]
+45 verbose addNamed [ null, null ]
+46 silly lockFile 88319797-body-parser-latest body-parser@latest
+47 verbose lock body-parser@latest /home/oyugik/.npm/88319797-body-parser-latest.lock
+48 verbose cache add name="winston" spec="latest" args=["winston","latest"]
+49 verbose parsed url { protocol: null,
+49 verbose parsed url   slashes: null,
+49 verbose parsed url   auth: null,
+49 verbose parsed url   host: null,
+49 verbose parsed url   port: null,
+49 verbose parsed url   hostname: null,
+49 verbose parsed url   hash: null,
+49 verbose parsed url   search: null,
+49 verbose parsed url   query: null,
+49 verbose parsed url   pathname: 'latest',
+49 verbose parsed url   path: 'latest',
+49 verbose parsed url   href: 'latest' }
+50 verbose addNamed [ 'winston', 'latest' ]
+51 verbose addNamed [ null, null ]
+52 silly lockFile 5cafa890-winston-latest winston@latest
+53 verbose lock winston@latest /home/oyugik/.npm/5cafa890-winston-latest.lock
+54 verbose cache add [ 'passport@latest', null ]
+55 verbose cache add name=undefined spec="passport@latest" args=["passport@latest",null]
+56 verbose parsed url { protocol: null,
+56 verbose parsed url   slashes: null,
+56 verbose parsed url   auth: null,
+56 verbose parsed url   host: null,
+56 verbose parsed url   port: null,
+56 verbose parsed url   hostname: null,
+56 verbose parsed url   hash: null,
+56 verbose parsed url   search: null,
+56 verbose parsed url   query: null,
+56 verbose parsed url   pathname: 'passport@latest',
+56 verbose parsed url   path: 'passport@latest',
+56 verbose parsed url   href: 'passport@latest' }
+57 verbose cache add [ 'cookie-parser@latest', null ]
+58 verbose cache add name=undefined spec="cookie-parser@latest" args=["cookie-parser@latest",null]
+59 verbose parsed url { protocol: null,
+59 verbose parsed url   slashes: null,
+59 verbose parsed url   auth: null,
+59 verbose parsed url   host: null,
+59 verbose parsed url   port: null,
+59 verbose parsed url   hostname: null,
+59 verbose parsed url   hash: null,
+59 verbose parsed url   search: null,
+59 verbose parsed url   query: null,
+59 verbose parsed url   pathname: 'cookie-parser@latest',
+59 verbose parsed url   path: 'cookie-parser@latest',
+59 verbose parsed url   href: 'cookie-parser@latest' }
+60 verbose cache add [ 'express3-handlebars@latest', null ]
+61 verbose cache add name=undefined spec="express3-handlebars@latest" args=["express3-handlebars@latest",null]
+62 verbose parsed url { protocol: null,
+62 verbose parsed url   slashes: null,
+62 verbose parsed url   auth: null,
+62 verbose parsed url   host: null,
+62 verbose parsed url   port: null,
+62 verbose parsed url   hostname: null,
+62 verbose parsed url   hash: null,
+62 verbose parsed url   search: null,
+62 verbose parsed url   query: null,
+62 verbose parsed url   pathname: 'express3-handlebars@latest',
+62 verbose parsed url   path: 'express3-handlebars@latest',
+62 verbose parsed url   href: 'express3-handlebars@latest' }
+63 verbose cache add [ 'bodyParser@lastes', null ]
+64 verbose cache add name=undefined spec="bodyParser@lastes" args=["bodyParser@lastes",null]
+65 verbose parsed url { protocol: null,
+65 verbose parsed url   slashes: null,
+65 verbose parsed url   auth: null,
+65 verbose parsed url   host: null,
+65 verbose parsed url   port: null,
+65 verbose parsed url   hostname: null,
+65 verbose parsed url   hash: null,
+65 verbose parsed url   search: null,
+65 verbose parsed url   query: null,
+65 verbose parsed url   pathname: 'bodyParser@lastes',
+65 verbose parsed url   path: 'bodyParser@lastes',
+65 verbose parsed url   href: 'bodyParser@lastes' }
+66 verbose cache add name="passport" spec="latest" args=["passport","latest"]
+67 verbose parsed url { protocol: null,
+67 verbose parsed url   slashes: null,
+67 verbose parsed url   auth: null,
+67 verbose parsed url   host: null,
+67 verbose parsed url   port: null,
+67 verbose parsed url   hostname: null,
+67 verbose parsed url   hash: null,
+67 verbose parsed url   search: null,
+67 verbose parsed url   query: null,
+67 verbose parsed url   pathname: 'latest',
+67 verbose parsed url   path: 'latest',
+67 verbose parsed url   href: 'latest' }
+68 verbose addNamed [ 'passport', 'latest' ]
+69 verbose addNamed [ null, null ]
+70 silly lockFile 771f2547-passport-latest passport@latest
+71 verbose lock passport@latest /home/oyugik/.npm/771f2547-passport-latest.lock
+72 verbose cache add name="cookie-parser" spec="latest" args=["cookie-parser","latest"]
+73 verbose parsed url { protocol: null,
+73 verbose parsed url   slashes: null,
+73 verbose parsed url   auth: null,
+73 verbose parsed url   host: null,
+73 verbose parsed url   port: null,
+73 verbose parsed url   hostname: null,
+73 verbose parsed url   hash: null,
+73 verbose parsed url   search: null,
+73 verbose parsed url   query: null,
+73 verbose parsed url   pathname: 'latest',
+73 verbose parsed url   path: 'latest',
+73 verbose parsed url   href: 'latest' }
+74 verbose addNamed [ 'cookie-parser', 'latest' ]
+75 verbose addNamed [ null, null ]
+76 silly lockFile a995bebb-cookie-parser-latest cookie-parser@latest
+77 verbose lock cookie-parser@latest /home/oyugik/.npm/a995bebb-cookie-parser-latest.lock
+78 verbose cache add name="express3-handlebars" spec="latest" args=["express3-handlebars","latest"]
+79 verbose parsed url { protocol: null,
+79 verbose parsed url   slashes: null,
+79 verbose parsed url   auth: null,
+79 verbose parsed url   host: null,
+79 verbose parsed url   port: null,
+79 verbose parsed url   hostname: null,
+79 verbose parsed url   hash: null,
+79 verbose parsed url   search: null,
+79 verbose parsed url   query: null,
+79 verbose parsed url   pathname: 'latest',
+79 verbose parsed url   path: 'latest',
+79 verbose parsed url   href: 'latest' }
+80 verbose addNamed [ 'express3-handlebars', 'latest' ]
+81 verbose addNamed [ null, null ]
+82 silly lockFile 174fc15e-express3-handlebars-latest express3-handlebars@latest
+83 verbose lock express3-handlebars@latest /home/oyugik/.npm/174fc15e-express3-handlebars-latest.lock
+84 verbose cache add name="bodyParser" spec="lastes" args=["bodyParser","lastes"]
+85 verbose parsed url { protocol: null,
+85 verbose parsed url   slashes: null,
+85 verbose parsed url   auth: null,
+85 verbose parsed url   host: null,
+85 verbose parsed url   port: null,
+85 verbose parsed url   hostname: null,
+85 verbose parsed url   hash: null,
+85 verbose parsed url   search: null,
+85 verbose parsed url   query: null,
+85 verbose parsed url   pathname: 'lastes',
+85 verbose parsed url   path: 'lastes',
+85 verbose parsed url   href: 'lastes' }
+86 verbose addNamed [ 'bodyParser', 'lastes' ]
+87 verbose addNamed [ null, null ]
+88 silly lockFile 527694bf-bodyParser-lastes bodyParser@lastes
+89 verbose lock bodyParser@lastes /home/oyugik/.npm/527694bf-bodyParser-lastes.lock
+90 info addNameTag [ 'express', 'latest' ]
+91 info addNameTag [ 'mongoose', 'latest' ]
+92 info addNameTag [ 'winston', 'latest' ]
+93 info addNameTag [ 'cors', 'latest' ]
+94 info addNameTag [ 'body-parser', 'latest' ]
+95 info addNameTag [ 'passport', 'latest' ]
+96 info addNameTag [ 'cookie-parser', 'latest' ]
+97 info addNameTag [ 'express3-handlebars', 'latest' ]
+98 info addNameTag [ 'bodyParser', 'lastes' ]
+99 verbose url raw bodyParser
+100 verbose url resolving [ 'https://registry.npmjs.org/', './bodyParser' ]
+101 verbose url resolved https://registry.npmjs.org/bodyParser
+102 info trying registry request attempt 1 at 16:17:21
+103 http GET https://registry.npmjs.org/bodyParser
+104 verbose url raw winston
+105 verbose url resolving [ 'https://registry.npmjs.org/', './winston' ]
+106 verbose url resolved https://registry.npmjs.org/winston
+107 info trying registry request attempt 1 at 16:17:21
+108 verbose etag "X1ZDJFVN0VOKIYXKINZHYRUJ"
+109 http GET https://registry.npmjs.org/winston
+110 verbose url raw passport
+111 verbose url resolving [ 'https://registry.npmjs.org/', './passport' ]
+112 verbose url resolved https://registry.npmjs.org/passport
+113 info trying registry request attempt 1 at 16:17:21
+114 verbose etag "1T41LUZFUOU9KHSP6VPX26869"
+115 http GET https://registry.npmjs.org/passport
+116 verbose url raw body-parser
+117 verbose url resolving [ 'https://registry.npmjs.org/', './body-parser' ]
+118 verbose url resolved https://registry.npmjs.org/body-parser
+119 info trying registry request attempt 1 at 16:17:21
+120 verbose etag "BUQU41DWEDC0Q9J7204JQO6NA"
+121 http GET https://registry.npmjs.org/body-parser
+122 verbose url raw mongoose
+123 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+124 verbose url resolved https://registry.npmjs.org/mongoose
+125 info trying registry request attempt 1 at 16:17:22
+126 verbose etag "47UTUXN079KVF7JDHY56QB37E"
+127 http GET https://registry.npmjs.org/mongoose
+128 verbose url raw cors
+129 verbose url resolving [ 'https://registry.npmjs.org/', './cors' ]
+130 verbose url resolved https://registry.npmjs.org/cors
+131 info trying registry request attempt 1 at 16:17:22
+132 verbose etag "EUFLWF2EP6FCJ4YRNFUZ73UPZ"
+133 http GET https://registry.npmjs.org/cors
+134 verbose url raw express
+135 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+136 verbose url resolved https://registry.npmjs.org/express
+137 info trying registry request attempt 1 at 16:17:22
+138 verbose etag "3ISENOMRCJ5CI5688D7FFBIIM"
+139 http GET https://registry.npmjs.org/express
+140 verbose url raw express3-handlebars
+141 verbose url resolving [ 'https://registry.npmjs.org/', './express3-handlebars' ]
+142 verbose url resolved https://registry.npmjs.org/express3-handlebars
+143 info trying registry request attempt 1 at 16:17:22
+144 verbose etag "C2JPAXGQK0T0OGIVJDWB2QMQE"
+145 http GET https://registry.npmjs.org/express3-handlebars
+146 verbose url raw cookie-parser
+147 verbose url resolving [ 'https://registry.npmjs.org/', './cookie-parser' ]
+148 verbose url resolved https://registry.npmjs.org/cookie-parser
+149 info trying registry request attempt 1 at 16:17:22
+150 verbose etag "8KR57KYQWJ98W0KIFESGXKOOO"
+151 http GET https://registry.npmjs.org/cookie-parser
+152 http 404 https://registry.npmjs.org/bodyParser
+153 verbose headers { date: 'Thu, 05 Mar 2015 13:29:50 GMT',
+153 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+153 verbose headers   'content-type': 'application/json',
+153 verbose headers   'cache-control': 'max-age=0',
+153 verbose headers   'content-length': '52',
+153 verbose headers   'accept-ranges': 'bytes',
+153 verbose headers   via: '1.1 varnish',
+153 verbose headers   age: '0',
+153 verbose headers   'x-served-by': 'cache-lcy1124-LCY',
+153 verbose headers   'x-cache': 'MISS',
+153 verbose headers   'x-cache-hits': '0',
+153 verbose headers   'x-timer': 'S1425562190.171033,VS0,VE91',
+153 verbose headers   'keep-alive': 'timeout=10, max=50',
+153 verbose headers   connection: 'Keep-Alive' }
+154 silly registry.get cb [ 404,
+154 silly registry.get   { date: 'Thu, 05 Mar 2015 13:29:50 GMT',
+154 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+154 silly registry.get     'content-type': 'application/json',
+154 silly registry.get     'cache-control': 'max-age=0',
+154 silly registry.get     'content-length': '52',
+154 silly registry.get     'accept-ranges': 'bytes',
+154 silly registry.get     via: '1.1 varnish',
+154 silly registry.get     age: '0',
+154 silly registry.get     'x-served-by': 'cache-lcy1124-LCY',
+154 silly registry.get     'x-cache': 'MISS',
+154 silly registry.get     'x-cache-hits': '0',
+154 silly registry.get     'x-timer': 'S1425562190.171033,VS0,VE91',
+154 silly registry.get     'keep-alive': 'timeout=10, max=50',
+154 silly registry.get     connection: 'Keep-Alive' } ]
+155 silly lockFile 527694bf-bodyParser-lastes bodyParser@lastes
+156 silly lockFile 527694bf-bodyParser-lastes bodyParser@lastes
+157 error 404 404 Not Found: bodyParser
+157 error 404
+157 error 404 'bodyParser' is not in the npm registry.
+157 error 404 You should bug the author to publish it
+157 error 404 It was specified as a dependency of 'expresstest'
+157 error 404
+157 error 404 Note that you can also install from a
+157 error 404 tarball, folder, or http url, or git url.
+158 error System Linux 3.6.7-4.fc16.i686
+159 error command "node" "/usr/local/bin/npm" "install"
+160 error cwd /home/oyugik/node/expresswebpages
+161 error node -v v0.10.29
+162 error npm -v 1.4.15
+163 error code E404
+164 verbose exit [ 1, true ]
