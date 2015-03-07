@@ -63,10 +63,20 @@ $ ./install.sh
 ### Usage
 
 Load the URL [http://[your host]/modorwebapp/webApp/index.php] login and see how it works.
+
+
 Test search using the following :
+
+
 a) name : Chloe Hamphrey 
+
+
 b) phone : 889-590-3598
+
+
 c) address : 27735, Columbia, Stanton Streets
+
+
 d) company : Celgra 
 
 
