@@ -1,0 +1,113 @@
+This is a short tutorial on how to deploy and use the Modor-Search.
+.......................................................................................................
+
+Kindly make sure you have the following installed (latest versions)before starting the installation process.
+- pgadmin
+- mongodb
+- PHP5
+- Python
+- NodeJs
+
+Make sure postgres, mongodb and httpd is running  
+
+To fix locking of mongodb during unsafe shutdowns. I have provided start-mongo-db.sh to ensure that your 
+database is running okay.
+
+
+How To Deply 
+..........................................................................................................
+
+1. Create Postgresql database and table. Run the following commands in pgadmin
+
+a) Create the database:
+
+CREATE DATABASE modor
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'en_US.UTF-8'
+       LC_CTYPE = 'en_US.UTF-8'
+       CONNECTION LIMIT = -1;
+GRANT CONNECT, TEMPORARY ON DATABASE modor TO public;
+GRANT ALL ON DATABASE modor TO postgres;
+
+
+b) Create the users table
+CREATE TABLE tbl_users
+(
+  userid bigint NOT NULL DEFAULT nextval('seq_users'::regclass),
+  username character varying(100) NOT NULL,
+  usertype usertype NOT NULL,
+  account_flags smallint NOT NULL DEFAULT 0,
+  spassword character varying(500) NOT NULL,
+  salt character varying(500) NOT NULL,
+  acl_flags smallint NOT NULL,
+  msisdn bigint NOT NULL,
+  email text,
+  full_names character varying(100) NOT NULL,
+  created_at timestamp without time zone NOT NULL DEFAULT now(),
+  updated_at timestamp without time zone,
+  activated_at timestamp without time zone,
+  deactivated_at timestamp without time zone,
+  usertype_fk bigint NOT NULL,
+  password_tries smallint NOT NULL DEFAULT 0,
+  active_flags smallint NOT NULL DEFAULT 0,
+  role smallint,
+  CONSTRAINT tbl_users_pkey PRIMARY KEY (userid)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE tbl_users
+  OWNER TO postgres;
+
+c) Create the users sequence
+
+CREATE SEQUENCE seq_users
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 78
+  CACHE 1;
+ALTER TABLE seq_users
+  OWNER TO postgres;
+
+
+2. Open terminal and clone the git repo to a local directory
+$ git clone https://github.com/OyugiK/Modor-Search.git
+
+3. Enter into Modor-Search directory
+$ cd Modor-Search
+
+4. Open terminal and start mongodb
+$ ./start-mongo-db.sh
+
+5. Open another terminal and run install.sh to deploy
+$ ./install.sh 
+
+6. Everything went well if you see
+$ Running on port 3000
+
+
+NOTE : Ignore some of the errors on the console. A little more cleaning up to come :-)
+
+
+Usage :
+...........................................................................................................
+
+1. Test the api end-points with any of the curl samples on the README.md file
+
+2. To load the webApp enter the url 
+http://[your host]/modorwebapp/webApp/index.php e.g (http://localhost/modorwebapp/webApp/index.php)
+
+3. Test search using the following :
+a) name : Chloe Hamphrey 
+b) phone : 889-590-3598
+c) address : 27735, Columbia, Stanton Streets
+d) company : Celgra 
+
+
+
+
+
+
