@@ -1,6 +1,7 @@
 {
-	"name": "expresstest",
+	"name": "graphAPI",
 	"version": "0.0.1",
+	"description": "This API provides 3rd Party callers with resources when end-points with required valid parameters are passed",
 	"dependencies":{
 		"express":"latest",
 		"mongoose":"latest",
@@ -10,6 +11,8 @@
 		"passport":"latest",
 		"cookie-parser":"latest",
 		"express3-handlebars":"latest",		
-		"mongoosemask":"latest"
-	}
+		"mongoosemask":"latest"		
+	},
+	"author": "Kevin Oyugi",
+	"license": "copyright"
 }
