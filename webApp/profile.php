@@ -41,7 +41,7 @@
 	}
 		
 	## query db for each of the info
-	# instantiate the awesome LipilaService
+	# instantiate the awesome webAppService
 	$service  = new WebAppService();
 
 	// call the graphAPI
@@ -51,16 +51,7 @@
 	$data = $findByPhone;
 
 	$dataArr = (json_decode($data, true));
-
 	
-	# get profile info
-	//$personalInfo = $service->getSubInfo($cardNo);
-
-	# get related profiles
-	//$cardsInfo = $service->getCards($cardNo);	
-
-	
-		
 	
 	# generate the token
 	$token = md5(uniqid(rand(), TRUE));
