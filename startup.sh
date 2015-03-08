@@ -1,7 +1,7 @@
 # script to start the api service
 
 # enter the deployment dir
-cd /usr/src/graph-api/api/
+cd /usr/src/graph-api/graphAPI/
 
 # start the api
-node app.js
+sudo node app.js
