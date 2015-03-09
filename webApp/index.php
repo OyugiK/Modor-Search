@@ -74,8 +74,21 @@
 	# search by company
 	$findByFriends = $service->search('http://127.0.0.1:3000/api/people/pals/'.$modTerm.'?username='.$username.'&password='.$password);
 
+	#### add search in
 
 
+	# cascade throught the successful api calls
+	#### search algorithm
+	# 1.  get the search term
+	# 2.  run search term on all the api end-points
+	# 3.  IF any of the api end points responds with {"status":"404 Person Doesnt Exist"} = TRUE skip.
+	# 4.  MOVE to the next api. Until we find one that returns {"status":"404 Person Doesnt Exist" = FALSE i.e {"status":"200 OK"} (records are available to parse).
+	# 5.  BREAK /STOP cascading
+	# 5.  Process the result to array of the successful case and LOOP 
+	# 6.  Display results
+
+
+	
 	switch (false) {
 		case ($findByPhone == '{"status":"404 Person Doesnt Exist"}'):
 			$data = $findByPhone;	
