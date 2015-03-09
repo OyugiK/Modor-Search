@@ -57,17 +57,22 @@
 	// "name":"Chloe Hamphrey","gender":"female",
 	//   "age":22,"registered":"2009-04-18T02:17:02 -02:00","email":"chloe@celgra.com"}]';	
 
+	// graphAPI credentials
+	$username = "87bf83fc";
+	$password = "f4a1112a";
 
 	# search by phone number
-	$findByPhone = $service->search('http://127.0.0.1:3000/api/people/phone/'.$modTerm);
+	$findByPhone = $service->search('http://127.0.0.1:3000/api/people/phone/'.$modTerm.'?username='.$username.'&password='.$password);
+	// var_dump('http://127.0.0.1:3000/api/people/phone/'.$modTerm.'?username='.$username.'&password='.$password);
+	// var_dump($findByPhone);
 	# search by name
-	$findByName = $service->search('http://127.0.0.1:3000/api/people/name/'.$modTerm);
+	$findByName = $service->search('http://127.0.0.1:3000/api/people/name/'.$modTerm.'?username='.$username.'&password='.$password);
 	# search by address
-	$findByAddress = $service->search('http://127.0.0.1:3000/api/people/address/'.$modTerm);
+	$findByAddress = $service->search('http://127.0.0.1:3000/api/people/address/'.$modTerm.'?username='.$username.'&password='.$password);
 	#search company
-	$findByCompany = $service->search('http://127.0.0.1:3000/api/people/company/'.$modTerm);
+	$findByCompany = $service->search('http://127.0.0.1:3000/api/people/company/'.$modTerm.'?username='.$username.'&password='.$password);
 	# search by company
-	$findByFriends = $service->search('http://127.0.0.1:3000/api/people/pals/'.$modTerm);
+	$findByFriends = $service->search('http://127.0.0.1:3000/api/people/pals/'.$modTerm.'?username='.$username.'&password='.$password);
 
 
 
@@ -185,7 +190,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="index.php">Home</a></li>          
-          <li><a href="createMerchantReport.php">About</a></li>          
+          <li><a href="about.php">About</a></li>          
           <li><a href="#">Contact</a></li>
         </ul>
         <h3 class="muted">Modor Search</h3>        

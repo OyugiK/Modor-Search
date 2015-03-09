@@ -23,14 +23,14 @@ class WebAppService{
 	}
 
 	// REST WEB Service Consumer
-	private function _consume($url){		
+	private function _consume($url){				
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);		
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		$data = curl_exec($ch);
-		curl_close($ch);
-		//var_dump($data);
+		curl_close($ch);		
 		return $data;
 		
 	}

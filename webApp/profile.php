@@ -44,9 +44,16 @@
 	# instantiate the awesome webAppService
 	$service  = new WebAppService();
 
+	$modTerm = $phone;
+
+	// graphAPI credentials
+	$username = "87bf83fc";
+	$password = "f4a1112a";
+
 	// call the graphAPI
 	# search by phone number
-	$findByPhone = $service->search('http://127.0.0.1:3000/api/people/phone/'.$phone);
+	$findByPhone = $service->search('http://127.0.0.1:3000/api/people/phone/'.$modTerm.'?username='.$username.'&password='.$password);
+	// var_dump($findByPhone);
 
 	$data = $findByPhone;
 
