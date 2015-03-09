@@ -14,8 +14,8 @@ data = json.loads(json_data)
 
 total = data['total']
 
-conn = pymongo.Connection('mongodb://localhost/gwaji')
-db = conn['gwaji']
+conn = pymongo.Connection('mongodb://localhost/people')
+db = conn['people']
 
 count = 0
 while count < total:
@@ -38,9 +38,9 @@ while count < total:
     tags = data['result'][count]['tags']
     friends = data['result'][count]['friends']
 
+    # make some things uniqu here
        
-
-    new_posts = {'id': ID,
+    new_people = {'id': ID,
                   'guid': guid,
                   'picture': picture,
                   'age': age,
@@ -52,8 +52,9 @@ while count < total:
                   'address': address,
                   'about': about,
                   'registered': registered,
+                  'tags': tags,
                   'friends': friends,
                   'date': datetime.datetime(2009, 11, 12, 11, 14)}
 
 
-    db.gwaji.insert(new_posts)
+    db.people.insert(new_people)
