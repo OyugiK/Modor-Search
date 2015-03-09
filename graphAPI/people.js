@@ -5,13 +5,15 @@ var logger = require("./logger.js");
 
 var app		= express();
 
+
 logger.info("starting the People GraphAPI");
 
 // connect oto 
-mongoose.connect('mongodb://localhost/gwaji');
+mongoose.connect('mongodb://localhost/people');
 logger.info("connected to database");
 
 //the person schema
+// make some things unique
 var personSchema = {
 	id:Number,
 	guid:String,
@@ -24,8 +26,10 @@ var personSchema = {
 	email:String,
 	address:String,	
 	registered:String,
-	about:{ type: String, select: false },
-	tags:String,
+	about:{ type: String, select: true },
+	tags:{
+		type:String
+	},
 	friends:{
 		id:Number,
 		name:String
@@ -35,7 +39,7 @@ var personSchema = {
 
 
 // the model
-var Person = mongoose.model('Person', personSchema, 'gwaji')
+var Person = mongoose.model('Person', personSchema, 'people')
 
 
 /**
@@ -67,6 +71,11 @@ module.exports = exports = GraphAPI = function(){
 						//console.log({"status" : "200 OK"});
 						// Populate a new field views
 						logger.info({"status" : "200 OK"});
+						// future logger message
+						/*{
+							"status": 401,
+        					"message": "Invalid credentials"
+      					});*/
 						
 					}			
 				}
