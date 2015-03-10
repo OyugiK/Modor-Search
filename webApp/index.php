@@ -87,6 +87,10 @@
 	# 5.  Process the result to array of the successful case and LOOP 
 	# 6.  Display results
 
+	# search needs to be intelligent
+	# the reults should be
+	# queried
+
 
 	
 	switch (false) {
@@ -296,7 +300,7 @@
 				</td>				
 				<td>
 					<a href="profile.php?phone=<?php
-												echo($dataArr[0]['phone']); 
+												echo($result['phone']); 
 												?>">View Profile</a>
 				</td>						
 			  </tr>
