@@ -2,16 +2,16 @@
 	"name": "graphAPI",
 	"version": "0.0.1",
 	"description": "This API provides 3rd Party callers with resources when end-points with required valid parameters are passed",
-	"dependencies":{
-		"express":"latest",
-		"mongoose":"latest",
-		"cors":"latest",
-		"body-parser":"latest",
-		"winston":"latest",
-		"passport":"latest",
-		"cookie-parser":"latest",
-		"express3-handlebars":"latest",		
-		"mongoosemask":"latest"		
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"cookie-parser": "latest",
+		"cors": "latest",
+		"express": "^4.16.4",
+		"express3-handlebars": "latest",
+		"mongoose": "^5.4.0",
+		"mongoosemask": "latest",
+		"passport": "^0.4.0",
+		"winston": "latest"
 	},
 	"author": "Kevin Oyugi",
 	"license": "copyright"

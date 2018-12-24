@@ -23,53 +23,63 @@ Add Tokenisation
 
 */
 
-var express 	= require("express");
-var mongoose 	= require("mongoose");
-var graphAPI 	= require("./people.js");
+var express = require("express");
+var mongoose = require("mongoose");
+var graphAPI = require("./people.js");
 var cookieParser = require('cookie-parser');
 var expressHbs = require('express3-handlebars');
 var logger = require("./logger.js");
 
 var app = express();
-app.engine('hbs', expressHbs({extname:'hbs', defaultLayout:'main.hbs'}));
+app.engine('hbs', expressHbs({
+	extname: 'hbs',
+	defaultLayout: 'main.hbs'
+}));
 app.set('view engine', 'hbs');
 
 logger.info("authenticating api users");
 
 // passport
-var passport = require("passport")
-	, LocalStrategy = require('passport-local').Strategy;
+var passport = require("passport"),
+	LocalStrategy = require('passport-local').Strategy;
 
 // password auth
 passport.use(new LocalStrategy(
-	function(username, password, done) {
+	function (username, password, done) {
 		logger.info("authenticating user %s", username);
 		// use db username and password auth here
 		// future faetures
-		if(username == "87bf83fc" && password == "f4a1112a"){
+		if (username == "87bf83fc" && password == "f4a1112a") {
 			logger.info("auth OK %s", username);
-			return done(null, {login : 100, id : 4});
-		}
-		else{
+			return done(null, {
+				login: 100,
+				id: 4
+			});
+		} else {
 			logger.info("auth Fail %s", username);
-			return done(null, false, { message: 'Bad Credentials'});
+			return done(null, false, {
+				message: 'Bad Credentials'
+			});
 		}
 	}
 ));
 
 
 // function to serialize logged in user
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
 	logger.info("serializing user %s", JSON.stringify(user));
 	done(null, user.id);
 });
 // function to de serialize logged in user
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function (id, done) {
 	logger.info("de-serializing user with id %s", id);
 	/*User.findById(id, function(err, user) {
 	done(err, user);
 	});*/
-	return done(null, {login : 100, id : 4});
+	return done(null, {
+		login: 100,
+		id: 4
+	});
 });
 
 // set the app use
@@ -77,17 +87,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // authenticate incoming requests
-app.use(passport.authenticate('local'), function(req, res, next){
-next();
+app.use(passport.authenticate('local'), function (req, res, next) {
+	next();
 });
 
 
 logger.info("calling the graph api");
 
 // log incoming requests
-app.use(function(req, res, next){
-logger.info('%s %s %s <- %s', req.protocol, req.method, req.url, req.ip);
-next();
+app.use(function (req, res, next) {
+	logger.info('%s %s %s <- %s', req.protocol, req.method, req.url, req.ip);
+	next();
 });
 
 // instantiate the people graph api
@@ -95,80 +105,80 @@ var api = new graphAPI();
 
 // List all People
 
-app.get('/api/people', function(req, res){
+app.get('/api/people', function (req, res) {
 	logger.info("started list all poeople end-point");
 	//call the api
-	data =  api.listAllPeople(req,res);	
+	data = api.listAllPeople(req, res);
 	return data
 
 });
 
 
 // Search by Name
-app.get('/api/people/name/:name', function(req, res){
+app.get('/api/people/name/:name', function (req, res) {
 	logger.info("started search by name end-point");
 	// call the api
-	data = api.findByName(req,res);
-  	return data;
+	data = api.findByName(req, res);
+	return data;
 
 });
 
 
 // Search by Phone Number
-app.get('/api/people/phone/:phone', function(req, res){
+app.get('/api/people/phone/:phone', function (req, res) {
 	logger.info("started search by phone number end-point");
 	// call the api
-	data =  api.findByPhoneNumber(req,res);
-  	return data;
-  
+	data = api.findByPhoneNumber(req, res);
+	return data;
+
 
 });
 
 
 // Search By Company
-app.get('/api/people/company/:company', function(req, res){
+app.get('/api/people/company/:company', function (req, res) {
 	logger.info("started search by company end-point");
-	data =  api.findByCompany(req,res);
+	data = api.findByCompany(req, res);
 	return data;
 
 });
 
 // Search by Friends
-app.get('/api/people/pals/:name', function(req,res){
+app.get('/api/people/pals/:name', function (req, res) {
 	logger.info("started search by friends end-point");
 	// call the api
-	data = api.findByFriends(req,res);
+	data = api.findByFriends(req, res);
 	return data;
 });
 
 // Search by Address
-app.get('/api/people/address/:address', function(req,res){
+app.get('/api/people/address/:address', function (req, res) {
 	logger.info("started search by address end-point");
 	// call the api
-	return api.findByAddress(req,res);
+	return api.findByAddress(req, res);
 
 });
 
 // Default
-app.get('/', function(req,res){
+app.get('/', function (req, res) {
 	logger.info("welcome to the home page");
 	//res.sendFile('index.html');
 	res.render('index');
 });
 
-app.get('/about', function(req, res){
+app.get('/about', function (req, res) {
 	logger.info("welcome to the about us page");
-  var data = {
-    name: 'Graph API',
-    info: {
-      versionName: 'Broadway',
-      Author: 'OyugiK',      
-      Contributors: {
-        name: 'Skylar White'
-      }
-    }
-  };
-  res.render('about', data);
+	var data = {
+		name: 'Graph API',
+		info: {
+			versionName: 'Broadway',
+			Author: 'OyugiK',
+			Contributors: {
+				name: 'Skylar White'
+			}
+		}
+	};
+	res.render('about', data);
 });
 
 
